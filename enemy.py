@@ -1,5 +1,5 @@
 class Enemy:
-    """Class for the enemy"""
+    """Class for enemy"""
 
     def __init__(self, base_health: int, health_modifier: int, n_attack: int, reward: str) -> None:
         self.health = base_health + health_modifier
