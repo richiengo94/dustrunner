@@ -169,5 +169,41 @@
       "name": "scanner",
       "text": "You may discard this card to avoid an encounter with the dust worm."
     }
+  ],
+  "vehicle_cards": [
+    {
+      "rear": {
+        "easy": {
+          "max_ammo": 9,
+          "base_vp": 2
+        },
+        "hard": {
+          "max_ammo": 7,
+          "base_vp": 4
+        }
+      },
+      "chassis": {
+        "easy": {
+          "base_dmg": 2,
+          "max_fuel": 3,
+          "base_vp": 1
+        },
+        "hard": {
+          "base_dmg": 1,
+          "max_fuel": 4,
+          "base_vp": 3
+        }
+      },
+      "front": {
+        "easy": {
+          "max_health": 12,
+          "base_vp": 2
+        },
+        "hard": {
+          "max_health": 10,
+          "base_vp": 2
+        }
+      }
+    }
   ]
 }

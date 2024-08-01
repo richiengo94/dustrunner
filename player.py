@@ -1,12 +1,22 @@
+from json import load
+
 class Player:
     """Class for the player"""
 
-    # Creates initial player stats
-    def __init__(self, max_ammo: int, max_fuel: int, max_health:int, base_vp: int) -> None:
-        self.max_ammo: int = max_ammo
-        self.max_fuel: int = max_fuel
-        self.max_health: int = max_health
-        self.vp: int = base_vp
+    # Creates initial player stats from vehicle card selection
+    def __init__(self, rear: str, chassis: str, front: str) -> None:
+
+        with open("cards.json") as read_file:
+            card_data = load(read_file)
+
+        self.max_ammo: int = card_data["vehicle_cards"][0]["rear"][rear]["max_ammo"]
+        self.max_fuel: int = card_data["vehicle_cards"][0]["chassis"][chassis]["max_fuel"]
+        self.base_damage: int = card_data["vehicle_cards"][0]["chassis"][chassis]["base_dmg"]
+        self.max_health: int = card_data["vehicle_cards"][0]["front"][front]["max_health"]
+        self.vp: int = card_data["vehicle_cards"][0]["rear"][rear]["base_vp"] +\
+            card_data["vehicle_cards"][0]["chassis"][chassis]["base_vp"] +\
+            card_data["vehicle_cards"][0]["front"][front]["base_vp"]
+
         self.current_ammo: int = self.max_ammo
         self.current_fuel: int = self.max_fuel
         self.current_health: int = self.max_health

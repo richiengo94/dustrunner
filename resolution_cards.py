@@ -9,9 +9,8 @@ class ResolutionCards:
 
         with open("cards.json") as read_file:
             card_data = load(read_file)
-
         self.res_cards = tuple(card for card in card_data["resolution_cards"])
-        
+
     def get_value(self, id: int, key: str):
         """Returns value of key on resolution card #id"""
         return self.res_cards[id][key]
