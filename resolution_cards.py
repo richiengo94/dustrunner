@@ -19,3 +19,11 @@ class ResolutionCards:
     def get_cards(self) -> tuple:
         """Returns tuple of data from all resolution cards"""
         return self.res_cards
+    
+    def get_damage(self, drawn_cards: list) -> int:
+        """Returns total damage from drawn_cards data using ids"""
+        total_dmg: str = 0
+        for id in drawn_cards:
+            total_dmg += self.get_value(id, "dmg")
+            
+        return total_dmg

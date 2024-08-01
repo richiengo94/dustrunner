@@ -1,5 +1,4 @@
 from random import shuffle
-import resolution_cards
 
 class Deck:
     """Class for deck of cards"""
@@ -15,9 +14,13 @@ class Deck:
         self.card_order = [i for i in range(0, self.max_n_cards)]
         shuffle(self.card_order)
 
-    def draw_card(self) -> int:
-        """Draws the top card and returns the id of the drawn card"""
-        if not(self.card_order):
-            self.shuffle_deck()
-        drawn_card_id = self.card_order.pop(0)
-        return drawn_card_id
+    def draw_card(self, n_cards) -> list:
+        """Draws n_cards # of cards and returns a list of the ids of the drawn cards"""
+        drawn_card_ids = []
+
+        for i in range(n_cards):
+            if not(self.card_order):
+                self.shuffle_deck()
+            drawn_card_ids.append(self.card_order.pop(0))
+
+        return drawn_card_ids
