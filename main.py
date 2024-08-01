@@ -1,5 +1,8 @@
 import deck
+import test
 
-res_deck = deck.Deck()
+def main() -> None:
+    test
 
-print(card.getType())
+if __name__ == "__main__":
+    main()

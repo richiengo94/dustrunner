@@ -1,7 +1,6 @@
 {
   "cards": [
     {
-      "id": 0,
       "dice_val": 2,
       "initiative": "raider",
       "raider_mvmt": 1,
@@ -9,7 +8,6 @@
       "bonus": ["crescent", "ammo"]
     },
     {
-      "id": 1,
       "dice_val": 2,
       "initiative": "player",
       "raider_mvmt": 1,
@@ -17,7 +15,6 @@
       "bonus": ["full", "fuel"]
     },
     {
-      "id": 2,
       "dice_val": 1,
       "initiative": "player",
       "raider_mvmt": 2,
@@ -25,7 +22,6 @@
       "bonus": ["full", "health"]
     },
     {
-      "id": 3,
       "dice_val": 4,
       "initiative": "raider",
       "raider_mvmt": 0,
@@ -33,7 +29,6 @@
       "bonus": ["full", "fuel"]
     },
     {
-      "id": 4,
       "dice_val": 1,
       "initiative": "raider",
       "raider_mvmt": 2,
@@ -41,7 +36,6 @@
       "bonus": ["crescent", "health"]
     },
     {
-      "id": 5,
       "dice_val": 2,
       "initiative": "player",
       "raider_mvmt": 1,
@@ -49,7 +43,6 @@
       "bonus": ["full", "fuel"]
     },
     {
-      "id": 6,
       "dice_val": 3,
       "initiative": "raider",
       "raider_mvmt": 1,
@@ -57,7 +50,6 @@
       "bonus": ["crescent", "health"]
     },
     {
-      "id": 7,
       "dice_val": 6,
       "initiative": "player",
       "raider_mvmt": 0,
@@ -65,7 +57,6 @@
       "bonus": ["crescent", "mod"]
     },
     {
-      "id": 8,
       "dice_val": 3,
       "initiative": "player",
       "raider_mvmt": 1,
@@ -73,7 +64,6 @@
       "bonus": ["crescent", "ammo"]
     },
     {
-      "id": 9,
       "dice_val": 5,
       "initiative": "player",
       "raider_mvmt": 0,

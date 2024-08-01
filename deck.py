@@ -1,21 +1,23 @@
-from random import shuffle, randint
-import cards
+from random import shuffle
+import resolution_cards
 
 class Deck:
+    """Class for deck of cards"""
+
     # Creates initial deck and shuffles
-    def __init__(self, n_cards):
+    def __init__(self, n_cards: int) -> None:
         self.max_n_cards = n_cards
-        self.card_order = list(range(0, n_cards))
+        self.card_order = []
         self.shuffle_deck()
 
-    # Shuffles the deck when deck runs out
-    def shuffle_deck(self):
-        self.card_order = list(range(0, self.max_n_cards))
+    def shuffle_deck(self) -> None:
+        """Shuffles the deck of cards"""
+        self.card_order = [i for i in range(0, self.max_n_cards)]
         shuffle(self.card_order)
 
-    # Draws top card and returns drawn card
-    def draw_card(self):
-        if(len(self.card_order) == 0):
+    def draw_card(self) -> int:
+        """Draws the top card and returns the id of the drawn card"""
+        if not(self.card_order):
             self.shuffle_deck()
-        last_drawn_card = self.card_order.pop(0)
-        return last_drawn_card
+        drawn_card_id = self.card_order.pop(0)
+        return drawn_card_id
