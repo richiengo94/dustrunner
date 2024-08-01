@@ -1,4 +1,3 @@
-import deck
 import test
 
 def main() -> None:

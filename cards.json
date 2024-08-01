@@ -1,0 +1,173 @@
+{
+  "resolution_cards": [
+    {
+      "dice_val": 2,
+      "initiative": "raider",
+      "raider_mvmt": 1,
+      "dmg": 1,
+      "bonus": ["crescent", "ammo"]
+    },
+    {
+      "dice_val": 2,
+      "initiative": "player",
+      "raider_mvmt": 1,
+      "dmg": 2,
+      "bonus": ["full", "fuel"]
+    },
+    {
+      "dice_val": 1,
+      "initiative": "player",
+      "raider_mvmt": 2,
+      "dmg": 0,
+      "bonus": ["full", "health"]
+    },
+    {
+      "dice_val": 4,
+      "initiative": "raider",
+      "raider_mvmt": 0,
+      "dmg": 3,
+      "bonus": ["full", "fuel"]
+    },
+    {
+      "dice_val": 1,
+      "initiative": "raider",
+      "raider_mvmt": 2,
+      "dmg": 0,
+      "bonus": ["crescent", "health"]
+    },
+    {
+      "dice_val": 2,
+      "initiative": "player",
+      "raider_mvmt": 1,
+      "dmg": 1,
+      "bonus": ["full", "fuel"]
+    },
+    {
+      "dice_val": 3,
+      "initiative": "raider",
+      "raider_mvmt": 1,
+      "dmg": 2,
+      "bonus": ["crescent", "health"]
+    },
+    {
+      "dice_val": 6,
+      "initiative": "player",
+      "raider_mvmt": 0,
+      "dmg": 3,
+      "bonus": ["crescent", "mod"]
+    },
+    {
+      "dice_val": 3,
+      "initiative": "player",
+      "raider_mvmt": 1,
+      "dmg": 2,
+      "bonus": ["crescent", "ammo"]
+    },
+    {
+      "dice_val": 5,
+      "initiative": "player",
+      "raider_mvmt": 0,
+      "dmg": 3,
+      "bonus": ["full", "ammo"]
+    }
+  ],
+  "exploration_cards": [
+    {
+      "effect": "raider",
+      "base_health": [3, 6],
+      "n_attack": [1, 2],
+      "rewards": ["full", "wild"]
+    },
+    {
+      "effect": "raider",
+      "base_health": [1, 3],
+      "n_attack": [1, 1],
+      "rewards": ["crescent", "health"]
+    },
+    {
+      "effect": "raider",
+      "base_health": [2, 5],
+      "n_attack": [1, 1],
+      "rewards": ["crescent", "ammo"]
+    },
+    {
+      "effect": "raider",
+      "base_health": [1, 2],
+      "n_attack": [1, 1],
+      "rewards": ["full", "ammo"]
+    },
+    {
+      "effect": "spybot",
+      "base_health": [2, 4],
+      "n_attack": [1, 1],
+      "rewards": ["crescent", "ammo"]
+    },
+    {
+      "effect": "restock",
+      "name": "ambulance",
+      "recover": ["health", 3]
+    },
+    {
+      "effect": "restock",
+      "name": "gas station",
+      "recover": ["fuel", 2]
+    },
+    {
+      "effect": "restock",
+      "name": "outpost",
+      "recover": ["ammo", 2]
+    },
+    {
+      "effect": "restock",
+      "name": "farm",
+      "recover": [["health", "fuel", "ammo"], 1]
+    },
+    {
+      "effect": "movement",
+      "name": "clear path",
+      "movement": 2
+    },
+    {
+      "effect": "movement",
+      "name": "crags",
+      "movement": 1
+    },
+    {
+      "effect": "dust worm"
+    }
+  ],
+  "modification_cards": [
+    {
+      "name": "nitroboost",
+      "text": "You may discard this card to move 2 spaces, but you lost 2 health."
+    },
+    {
+      "name": "stabletrek",
+      "text": "When in the crags, you may move 2 spaces instead of 1."
+    },
+    {
+      "name": "radar",
+      "text": "If your enemy gets initiative in combat, you may draw again for a new initiative, but must take the new result."
+    },
+    {
+      "name": "targetloc",
+      "text": "Whenever you spend 3 ammo to attack, you may add 2 extra damage."
+    },
+    {
+      "name": "cloak",
+      "text": "You may discard this card to avoid a single combat."
+    },
+    {
+      "name": "shields",
+      "text": "Subtract 1 damage from all raider attacks. If a raider ever draws a resolution card with an attack value of 3, your shields are destroyed!"
+    },
+    {
+      "name": "hologram",
+      "text": "Whenever the raiders are to advance, you may discard this card and the raiders will not move."
+    },
+    {
+      "name": "scanner",
+      "text": "You may discard this card to avoid an encounter with the dust worm."
+    }
+  ]
+}
