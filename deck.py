@@ -5,13 +5,13 @@ class Deck:
 
     # Creates initial deck and shuffles
     def __init__(self, n_cards: int) -> None:
-        self.max_n_cards = n_cards
-        self.card_order = []
+        self.max_n_cards: int = n_cards
+        self.card_order: list = []
         self.shuffle_deck()
 
     def shuffle_deck(self) -> None:
         """Shuffles the deck of cards"""
-        self.card_order = [i for i in range(0, self.max_n_cards)]
+        self.card_order = [i for i in range(0, self.max_n_cards - 1)]
         shuffle(self.card_order)
 
     def draw_card(self, n_cards) -> list:
