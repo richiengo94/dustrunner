@@ -1,7 +1,7 @@
 class Enemy:
     """Class for enemy"""
 
-    # Sets base stats of enemy depending on first or second card drawn
+    # Sets base stats of enemy depending on first or second card selected
     def __init__(self, is_first: bool, base_health: list, health_modifier: int, n_attack: list, reward: list) -> None:
         if is_first:
             self.health = base_health[0] + health_modifier

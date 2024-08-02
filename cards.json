@@ -105,17 +105,17 @@
     {
       "effect": "restock",
       "name": "ambulance",
-      "recover": ["health", 3]
+      "recover": [["health"], 3]
     },
     {
       "effect": "restock",
       "name": "gas station",
-      "recover": ["fuel", 2]
+      "recover": [["fuel"], 2]
     },
     {
       "effect": "restock",
       "name": "outpost",
-      "recover": ["ammo", 2]
+      "recover": [["ammo"], 2]
     },
     {
       "effect": "restock",

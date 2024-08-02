@@ -49,6 +49,10 @@ class Player:
         """Sets current player fuel"""
         self.current_fuel = fuel
 
+    def refill_tank(self) -> None:
+        """Uses 1 fuel to refill tank at end of round"""
+        self.set_current_fuel(self.get_current_fuel() - 1)
+
     def get_current_health(self) -> int:
         """Returns current player health"""
         return self.current_health

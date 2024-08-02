@@ -24,7 +24,7 @@ class ResolutionCards(Cards):
     # Stores resolution card data
     def __init__(self) -> None:
         Cards.__init__(self)
-        self.res_cards = tuple(card for card in self.card_data["resolution_cards"])
+        self.res_cards = [card for card in self.card_data["resolution_cards"]]
     
     def get_damage(self, drawn_cards: list) -> int:
         """Returns total damage from drawn_cards data using ids"""
@@ -40,4 +40,4 @@ class ExplorationCards(Cards):
     # Stores exploration card data
     def __init__(self) -> None:
         Cards.__init__(self)
-        self.exp_cards = tuple(card for card in self.card_data["exploration_cards"])
+        self.exp_cards = [card for card in self.card_data["exploration_cards"]]

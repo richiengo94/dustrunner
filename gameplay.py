@@ -6,7 +6,7 @@ from random import randint
 
 def choose_car_parts() -> list:
     """Returns list of difficulty for each car part"""
-    vehicle_parts_list = []
+    vehicle_parts_list: list = []
     random_vehicle = input("Random vehicle?: ")
     vehicle_parts_difficulty = ("easy", "hard")
     
@@ -19,16 +19,16 @@ def choose_car_parts() -> list:
 
     return vehicle_parts_list[0], vehicle_parts_list[1], vehicle_parts_list[2]
 
-def is_enemy_card(is_first: bool, exp: str, exp_cards: ExplorationCards, drawn_exp_cards: int) -> bool:
-    """Checks is exploartion card selected is an enemy"""
+def get_card_effect(is_first: bool, exp: str, exp_cards: ExplorationCards, drawn_exp_cards: int) -> str:
+    """Gets exploration card effect"""
+    effect: str = ""
+
     if(is_first):
-        if(exp_cards.get_value(exp, drawn_exp_cards[0], "effect") == "raider" or exp_cards.get_value(exp, drawn_exp_cards[0],"effect") == "spybot"):
-            return True
+        effect = exp_cards.get_value(exp, drawn_exp_cards[0], "effect")
     else:
-        if(exp_cards.get_value(exp, drawn_exp_cards[1], "effect") == "raider" or exp_cards.get_value(exp, drawn_exp_cards[1],"effect") == "spybot"):
-            return True
-    
-    return False
+        effect = exp_cards.get_value(exp, drawn_exp_cards[1], "effect")
+        
+    return effect
 
 def generate_enemy(is_first: bool, res: str, exp: str, drawn_res_cards: int,
                     drawn_exp_cards: int, res_cards: ResolutionCards, exp_cards: ExplorationCards) -> Enemy:
@@ -46,6 +46,16 @@ def generate_enemy(is_first: bool, res: str, exp: str, drawn_res_cards: int,
 
     return Enemy(is_first, base_health, dice_val, n_attack, reward)
 
+def check_player_fuel(player: Player) -> bool:
+    if(player.get_current_fuel() > 0):
+        player.refill_tank()
+        return True
+    
+    return False
+
+def restock_player(restock: bool, player: Player) -> None:
+    pass
+
 player_location: int = 2
 enemy_location: int = 0
 
@@ -57,6 +67,9 @@ exp_cards = ExplorationCards()
 
 is_first: bool = True
 in_combat: bool = False
+restock: bool = False
+refilled: bool = False
+game_over = False
 
 res: str = "resolution_cards"
 exp: str = "exploration_cards"
@@ -64,9 +77,13 @@ exp: str = "exploration_cards"
 rear, chassis, front = choose_car_parts()
 player = Player(card_data.get_card_data(), rear, chassis, front)
 
-drawn_exp_cards = exp_deck.draw_card(2)
+drawn_exp_cards, exp_deck_shuffled = exp_deck.draw_card(2)
+
 print(exp_cards.get_card(exp, drawn_exp_cards[0]))
-select_first_card = input("Select first card?: ")
+if(exp_cards.get_value(exp, drawn_exp_cards[0], "effect") == "dust worm"):
+    select_first_card = "y"
+else:
+    select_first_card = input("Select first card?: ")
 
 if(select_first_card == "y"):
     is_first = True
@@ -74,7 +91,17 @@ elif(select_first_card == "n"):
     print(exp_cards.get_card(exp, drawn_exp_cards[1]))
     is_first = False
 
-if(is_enemy_card(is_first, exp, exp_cards, drawn_exp_cards)):
-        drawn_res_cards = res_deck.draw_card(1)
-        enemy = generate_enemy(is_first, res, exp, drawn_res_cards, drawn_exp_cards, res_cards, exp_cards)
-        in_combat = True
+effect = get_card_effect(is_first, exp, exp_cards, drawn_exp_cards)
+
+if(effect == "enemy"):
+    drawn_res_cards, _ = res_deck.draw_card(1)
+    enemy = generate_enemy(is_first, res, exp, drawn_res_cards, drawn_exp_cards, res_cards, exp_cards)
+    in_combat = True
+elif(effect == "restock"):
+    restock_player(restock, player)
+
+if(exp_deck_shuffled):
+    refilled = check_player_fuel(player)
+
+if(not refilled):
+    enemy_location += 2
