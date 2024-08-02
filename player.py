@@ -25,6 +25,14 @@ class Player:
         """Sets current victory points"""
         self.vp = vp
 
+    def defeat_enemy_vp(self) -> None:
+        """Increases victory points from defeating enemy"""
+        self.set_vp(self.get_vp() + 2)
+
+    def redraw_res_card_vp(self) -> None:
+        """Decreases victory points from redrawing resolution card"""
+        self.set_vp(self.get_vp() - 2)
+
     def get_current_ammo(self) -> int:
         """Returns current player ammo"""
         return self.current_ammo

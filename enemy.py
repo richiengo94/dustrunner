@@ -1,9 +1,14 @@
 class Enemy:
     """Class for enemy"""
 
-    def __init__(self, base_health: int, health_modifier: int, n_attack: int, reward: str) -> None:
-        self.health = base_health + health_modifier
-        self.n_attack = n_attack
+    # Sets base stats of enemy depending on first or second card drawn
+    def __init__(self, is_first: bool, base_health: list, health_modifier: int, n_attack: list, reward: list) -> None:
+        if is_first:
+            self.health = base_health[0] + health_modifier
+            self.n_attack = n_attack[0]
+        else:
+            self.health = base_health[1] + health_modifier
+            self.n_attack = n_attack[1]
         self.reward = reward
 
     def get_health(self) -> int:

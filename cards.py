@@ -14,9 +14,9 @@ class Cards:
         """Returns value of key on card #id"""
         return self.card_data[card_type][id][key]
     
-    def get_cards(self, card_type: str) -> tuple:
-        """Returns tuple of data from all cards of certain type"""
-        return self.card_data[card_type]
+    def get_card(self, card_type: str, id: int) -> dict:
+        """Returns dictionary info of card type using id"""
+        return self.card_data[card_type][id]
     
 class ResolutionCards(Cards):
     """Class for resolution cards"""
