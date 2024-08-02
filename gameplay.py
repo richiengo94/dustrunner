@@ -19,7 +19,7 @@ def choose_car_parts() -> list:
 
     return vehicle_parts_list[0], vehicle_parts_list[1], vehicle_parts_list[2]
 
-def get_card_effect(is_first: bool, exp: str, exp_cards: ExplorationCards, drawn_exp_cards: int) -> str:
+def get_card_effect(is_first: bool, exp: str, exp_cards: ExplorationCards, drawn_exp_cards: list[int]) -> str:
     """Gets exploration card effect"""
     effect: str = ""
 
@@ -30,8 +30,8 @@ def get_card_effect(is_first: bool, exp: str, exp_cards: ExplorationCards, drawn
         
     return effect
 
-def generate_enemy(is_first: bool, res: str, exp: str, drawn_res_cards: int,
-                    drawn_exp_cards: int, res_cards: ResolutionCards, exp_cards: ExplorationCards) -> Enemy:
+def generate_enemy(is_first: bool, res: str, exp: str, drawn_res_cards: list[int],
+                    drawn_exp_cards: list[int], res_cards: ResolutionCards, exp_cards: ExplorationCards) -> Enemy:
     """Generates enemy object"""
     if(is_first):
         base_health = exp_cards.get_value(exp, drawn_exp_cards[0], "base_health")
@@ -53,11 +53,25 @@ def check_player_fuel(player: Player) -> bool:
     
     return False
 
-def restock_player(restock: bool, player: Player) -> None:
-    pass
-
 player_location: int = 2
 enemy_location: int = 0
+
+def move_player(is_first: bool, player: Player, exp: str, drawn_exp_cards: list[int], exp_cards: ExplorationCards) -> None:
+    if(player.get_current_fuel()):
+        if(is_first):
+            if(exp_cards.get_value(exp, drawn_exp_cards[0], "name") == "clear path"):
+                player_location += 2
+            else:
+                player_location += 1
+        else:
+            if(exp_cards.get_value(exp, drawn_exp_cards[1], "name") == "clear path"):
+                player_location += 2
+            else:
+                player_location += 1
+
+def restock_player(restock: bool, player: Player) -> None:
+    if(restock):
+        pass
 
 res_deck = Deck(10)
 exp_deck = Deck(12)
@@ -99,6 +113,8 @@ if(effect == "enemy"):
     in_combat = True
 elif(effect == "restock"):
     restock_player(restock, player)
+elif(effect == "movement"):
+    move_player(is_first, player, exp, drawn_exp_cards, exp_cards)
 
 if(exp_deck_shuffled):
     refilled = check_player_fuel(player)

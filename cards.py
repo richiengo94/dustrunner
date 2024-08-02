@@ -26,7 +26,7 @@ class ResolutionCards(Cards):
         Cards.__init__(self)
         self.res_cards = [card for card in self.card_data["resolution_cards"]]
     
-    def get_damage(self, drawn_cards: list) -> int:
+    def get_damage(self, drawn_cards: list[int]) -> int:
         """Returns total damage from drawn_cards data using ids"""
         total_dmg: str = 0
         for id in drawn_cards:

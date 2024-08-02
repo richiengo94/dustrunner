@@ -14,7 +14,7 @@ class Deck:
         self.card_order = [i for i in range(0, self.max_n_cards - 1)]
         shuffle(self.card_order)
 
-    def draw_card(self, n_cards) -> list | bool:
+    def draw_card(self, n_cards) -> list[int] | bool:
         """Draws n_cards # of cards and returns a list of the ids of the drawn cards"""
         drawn_card_ids: list = []
         shuffled_deck: bool = False
