@@ -71,7 +71,7 @@ def move_player(is_first: bool, player: Player, exp: str, drawn_exp_cards: list[
 
 def restock_player(restock: bool, player: Player) -> None:
     if(restock):
-        pass
+        raise NotImplementedError
 
 res_deck = Deck(10)
 exp_deck = Deck(12)

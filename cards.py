@@ -1,4 +1,5 @@
 from json import load
+from typing import Any
 
 class Cards:
     """Class for cards"""
@@ -6,11 +7,11 @@ class Cards:
         with open("cards.json") as read_file:
             self.card_data = load(read_file)
 
-    def get_card_data(self) -> dict:
+    def get_card_data(self) -> dict[Any]:
         """Returns data from all cards"""
         return self.card_data
     
-    def get_value(self, card_type: str, id: int, key: str):
+    def get_value(self, card_type: str, id: int, key: str) -> Any:
         """Returns value of key on card #id"""
         return self.card_data[card_type][id][key]
     
@@ -24,7 +25,7 @@ class ResolutionCards(Cards):
     # Stores resolution card data
     def __init__(self) -> None:
         Cards.__init__(self)
-        self.res_cards = [card for card in self.card_data["resolution_cards"]]
+        self.res_cards: list = [card for card in self.card_data["resolution_cards"]]
     
     def get_damage(self, drawn_cards: list[int]) -> int:
         """Returns total damage from drawn_cards data using ids"""
@@ -40,4 +41,4 @@ class ExplorationCards(Cards):
     # Stores exploration card data
     def __init__(self) -> None:
         Cards.__init__(self)
-        self.exp_cards = [card for card in self.card_data["exploration_cards"]]
+        self.exp_cards: list = [card for card in self.card_data["exploration_cards"]]
