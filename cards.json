@@ -105,35 +105,42 @@
     {
       "effect": "restock",
       "name": "ambulance",
-      "recover": [["health"], 3]
+      "recover": [["health"], 3],
+      "text": "Spend 1 fuel to move 1 space. OR Gain 3 health."
     },
     {
       "effect": "restock",
       "name": "gas station",
-      "recover": [["fuel"], 2]
+      "recover": [["fuel"], 2],
+      "text": "Spend 1 fuel to move 1 space. OR Gain 2 fuel."
     },
     {
       "effect": "restock",
       "name": "outpost",
-      "recover": [["ammo"], 2]
+      "recover": [["ammo"], 2],
+      "text": "Spend 1 fuel to move 1 space. OR Gain 2 ammo."
     },
     {
       "effect": "restock",
       "name": "farm",
-      "recover": [["health", "fuel", "ammo"], 1]
+      "recover": [["health", "fuel", "ammo"], 1],
+      "text": "Gain 1 health, 1 ammo, and 1 fuel. Advance the raiders 1 space."
     },
     {
       "effect": "movement",
       "name": "clear path",
-      "movement": 2
+      "movement": 2,
+      "text": "You may spend 1 fuel to move 2 spaces."
     },
     {
       "effect": "movement",
       "name": "crags",
-      "movement": 1
+      "movement": 1,
+      "text": "You may spend 1 fuel to move 1 space."
     },
     {
-      "effect": "dust worm"
+      "effect": "dust worm",
+      "text": "Lose 3 health and advance the raiders 1 space."
     }
   ],
   "modification_cards": [

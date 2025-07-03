@@ -39,6 +39,9 @@ class Player:
     
     def set_current_ammo(self, ammo: int) -> None:
         """Sets current player ammo"""
+        if(ammo > self.max_ammo):
+            self.current_ammo = self.max_ammo
+        
         self.current_ammo = ammo
 
     def get_current_fuel(self) -> int:
@@ -47,6 +50,9 @@ class Player:
     
     def set_current_fuel(self, fuel: int) -> None:
         """Sets current player fuel"""
+        if(fuel > self.max_fuel):
+            self.current_fuel = self.max_fuel
+
         self.current_fuel = fuel
 
     def refill_tank(self) -> None:
@@ -59,4 +65,7 @@ class Player:
     
     def set_current_health(self, health: int) -> None:
         """Sets current player health"""
+        if(health > self.max_health):
+            self.current_health = self.max_health
+
         self.current_health = health
